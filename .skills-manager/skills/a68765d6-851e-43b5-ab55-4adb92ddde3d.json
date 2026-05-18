@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "a68765d6-851e-43b5-ab55-4adb92ddde3d",
+  "path": "verification-before-completion",
+  "path_key": "verification-before-completion",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "skillssh",
+    "ref": "obra/superpowers/verification-before-completion",
+    "subpath": "skills/verification-before-completion",
+    "branch": null
+  }
+}

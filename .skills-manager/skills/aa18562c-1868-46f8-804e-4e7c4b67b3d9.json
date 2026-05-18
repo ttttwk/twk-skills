@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "aa18562c-1868-46f8-804e-4e7c4b67b3d9",
+  "path": "ai-general-guidelines",
+  "path_key": "ai-general-guidelines",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "import",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
