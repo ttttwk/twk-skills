@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "da64f8af-27e6-4109-b203-e64574d020bb",
+  "path": "gcode-modify",
+  "path_key": "gcode-modify",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

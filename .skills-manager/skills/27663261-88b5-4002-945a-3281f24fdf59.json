@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "27663261-88b5-4002-945a-3281f24fdf59",
+  "path": "gcode-new-feature",
+  "path_key": "gcode-new-feature",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
