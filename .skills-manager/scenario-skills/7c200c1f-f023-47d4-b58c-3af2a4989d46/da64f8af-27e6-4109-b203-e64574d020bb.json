@@ -4,8 +4,7 @@
   "skill_id": "da64f8af-27e6-4109-b203-e64574d020bb",
   "sort_order": 3,
   "tools": {
-    "codex": false,
-    "kimi": false,
-    "reasonix": false
+    "codex": true,
+    "kimi": true
   }
 }
