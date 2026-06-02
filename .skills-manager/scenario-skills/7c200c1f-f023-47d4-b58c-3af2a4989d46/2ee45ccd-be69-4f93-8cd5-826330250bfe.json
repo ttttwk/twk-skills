@@ -6,9 +6,10 @@
   "tools": {
     "amp": true,
     "claude_code": true,
-    "codex": true,
+    "codex": false,
     "gemini_cli": true,
     "junie": true,
-    "kimi": true
+    "kimi": false,
+    "reasonix": false
   }
 }
