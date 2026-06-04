@@ -9,6 +9,7 @@
     "codex": true,
     "gemini_cli": true,
     "junie": true,
-    "kimi": true
+    "kimi": true,
+    "kimi_code": true
   }
 }

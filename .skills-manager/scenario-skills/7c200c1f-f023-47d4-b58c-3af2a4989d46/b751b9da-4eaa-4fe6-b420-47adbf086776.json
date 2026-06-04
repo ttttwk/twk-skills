@@ -5,6 +5,7 @@
   "sort_order": 2,
   "tools": {
     "codex": true,
-    "kimi": true
+    "kimi": true,
+    "kimi_code": true
   }
 }

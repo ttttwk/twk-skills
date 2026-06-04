@@ -1,0 +1,32 @@
+{
+  "project": {
+    "name": "你的项目名称",
+    "workspace_id": "39222963"
+  },
+  "notify_format": {
+    "fields": ["title", "description", "current_owner", "reporter", "created", "status", "bug_link"],
+    "description_max_length": 80,
+    "style": "text"
+  },
+  "filter": {
+    "client_keywords": [],
+    "server_keywords": []
+  },
+  "workflow": {
+    "default_query_status": "new",
+    "auto_process_after_confirm": true,
+    "notify_each_step": true,
+    "steps": [
+      "query_bugs",
+      "classify_bugs",
+      "user_confirm",
+      "analyze_code",
+      "fix_code",
+      "notify_fix",
+      "update_tapd"
+    ]
+  },
+  "filter_members": [],
+  "bot_url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_BOT_KEY",
+  "tapd_token": "921c2dbcd816f20b775428e233320ff4c557f096"
+}
