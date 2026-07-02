@@ -1,9 +1,27 @@
 ---
 name: gcode
-description: Use when asked to implement a new server-side feature or modify an existing one in a GalaxyServer-based Java game project. Triggered by mentions of "gcode规范", "GalaxyServer开发守则", new feature workflow, or feature modification. Also applies when cross-server routing, Proto/CmdType changes, database migrations, or TDD discipline are involved.
+description: |
+  基于 GalaxyServer 框架的 Java 游戏服务端开发总规范。
+  用于：新增或修改服务端功能、涉及 Proto/CmdType/跨服路由/数据库迁移/TDD 节奏时，先加载本 Skill 确定约束与流程。
+  触发词：gcode 规范、GalaxyServer 开发守则、新增功能、修改功能、跨服路由、协议变更、数据库迁移。
+  不用于：非 GalaxyServer 项目、纯前端/客户端开发、通用 Java/Spring Boot 后端、与 GalaxyServer 无关的通用 TDD 问题（这些情况请用对应语言/框架 Skill）。
 ---
 
 # GalaxyServer 开发守则（gcode规范）
+
+> 基于 GalaxyServer 框架的 Java 游戏服务端开发总规范。新增功能、修改功能、跨服路由、协议/数据库变更前，先从这里开始。
+
+## 快速选择：你现在处于哪个场景？
+
+| 你的场景 | 进入哪个 Skill | 一句话说明 |
+|---|---|---|
+| 从零开发一个新系统/功能（需要新建 Proto、Cmd、Module、DB 等） | `$gcode-new-feature` | 10 Phase 全链路工作流 |
+| 在现有功能上增加新接口/新逻辑（不破坏现有结构） | `$gcode-new-feature` + `$gcode-modify` 最小侵入原则 | 新增接口也走兼容性检查 |
+| 修改现有协议、命令号、数据库表结构、跨服链路 | `$gcode-modify` | 影响面评估 + 兼容性规范 |
+| 重构/优化现有代码（不增新功能，不改协议） | `$gcode`（本 Skill）+ `$gcode-modify` 最小侵入原则 | 用 TDD 捕获当前行为 |
+| 需要把业务逻辑拆成可独立测试的单元、写好单个测试 | `$test-driven-development` | 测试命名、断言、RED-GREEN-REFACTOR 细节 |
+
+> 不确定该进哪个？先回答下面的 [前置问题](#前置问题必须回答)，再决定。
 
 本守则是基于 GalaxyServer 框架的 Java 游戏服务端开发规范，覆盖**新增功能**与**修改功能**两大场景。
 
@@ -372,3 +390,15 @@ sendUpdateStates(Collections.singletonList(mailInfo));
 | 8 | 跨服协议 | 发送端和接收端 proto 结构一致 |
 | 9 | Module 生命周期 | 未随意重写 `init()` / `save()` |
 | 10 | 缓存一致性 | 内存缓存与数据库状态一致 |
+
+---
+
+## 附录：验证 prompt（dry_run）
+
+以下 prompt 用于验证本 Skill 触发与导航质量：
+
+1. **"我要给游戏加邮件系统，从零开发，要走哪些步骤？"** → 应导航到 `$gcode-new-feature`。
+2. **"我想给 Mail.proto 加一个字段，要注意什么？"** → 应导航到 `$gcode-modify`。
+3. **"玩家 A 给玩家 B 发邮件，跨服消息怎么写？"** → 应在本 Skill 中找到 `ServerRouteProto` / `PlayerManager.sendToPlayer` 相关规范。
+4. **"TDD 是先写测试还是先写实现？"** → 应导航到 `$test-driven-development`，本 Skill 不抢答。
+5. **"这个 CmdType 会不会和已有的冲突？"** → 应在本 Skill 中找到 [CmdType 命令号复用](#2-cmdtype-命令号复用) 与快速自查表第 2 项。

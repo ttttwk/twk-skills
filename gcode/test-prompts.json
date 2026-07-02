@@ -1,0 +1,55 @@
+{
+  "version": "2026-06-12",
+  "purpose": "验证 gcode 总入口的触发命中率与子 Skill 导航质量",
+  "prompts": [
+    {
+      "id": "P1",
+      "prompt": "我要给游戏加邮件系统，从零开发，要走哪些步骤？",
+      "expected_skill": "$gcode-new-feature",
+      "gcode_should": "命中后，首屏「快速选择」导航到 $gcode-new-feature",
+      "note": "与 $gcode-new-feature 触发竞争是正常总入口行为"
+    },
+    {
+      "id": "P2",
+      "prompt": "我想给 Mail.proto 加一个字段，要注意什么？",
+      "expected_skill": "$gcode-modify",
+      "gcode_should": "命中后，首屏「快速选择」导航到 $gcode-modify",
+      "note": "与 $gcode-modify 触发竞争是正常总入口行为"
+    },
+    {
+      "id": "P3",
+      "prompt": "玩家 A 给玩家 B 发邮件，跨服消息怎么写？",
+      "expected_skill": "gcode",
+      "gcode_should": "在「操作其他在线玩家」或「跨进程消息统一信封」章节给出 ServerRouteProto / PlayerManager.sendToPlayer 规范",
+      "note": ""
+    },
+    {
+      "id": "P4",
+      "prompt": "TDD 是先写测试还是先写实现？",
+      "expected_skill": "$test-driven-development",
+      "gcode_should": "因负触发「与 GalaxyServer 无关的通用 TDD 问题」不抢答，导航到 $test-driven-development",
+      "note": ""
+    },
+    {
+      "id": "P5",
+      "prompt": "这个 CmdType 会不会和已有的冲突？",
+      "expected_skill": "gcode",
+      "gcode_should": "在「常见错误与规避 > CmdType 命令号复用」或「快速自查表」中给出答案",
+      "note": ""
+    },
+    {
+      "id": "P6",
+      "prompt": "修改现有 Module 时，TDD 要怎么走？",
+      "expected_skill": "$gcode-modify",
+      "gcode_should": "$gcode-modify 中保留修改场景 TDD 检查点，并引用 $gcode 的「TDD 基础节奏」和 $test-driven-development",
+      "note": "验证重复内容统一后引用仍清晰"
+    },
+    {
+      "id": "P7",
+      "prompt": "feature-modification 这个 Skill 在哪？",
+      "expected_skill": "N/A",
+      "gcode_should": "项目 AGENTS.md 不再引用 skills/feature-modification/SKILL.md；同名能力由 $gcode-modify 覆盖",
+      "note": "验证缺失引用已清理"
+    }
+  ]
+}

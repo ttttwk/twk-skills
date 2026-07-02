@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "scenario_id": "7c200c1f-f023-47d4-b58c-3af2a4989d46",
+  "skill_id": "7714e3da-1eab-4365-9450-4baa212481fe",
+  "sort_order": 1,
+  "tools": {
+    "codex": true,
+    "kimi": true,
+    "kimi_code": true
+  }
+}

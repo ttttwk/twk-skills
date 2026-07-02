@@ -1,6 +1,10 @@
 ---
 name: gcode-modify
-description: Use when modifying an existing server-side feature in a GalaxyServer-based Java game project. Triggered by mentions of "修改功能", "feature modification", "兼容性", "破坏性变更", "PROTOCOL_DIFF_REPORT", or changes to Proto, CmdType, database schema, business logic, config tables, or cross-server protocols.
+description: |
+  基于 GalaxyServer 框架的 Java 游戏服务端：修改现有功能的兼容性规范。
+  用于：修改现有协议、命令号、数据库表结构、业务逻辑、配置表、跨服协议，或评估破坏性变更与兼容性。
+  触发词：修改功能、feature modification、兼容性、破坏性变更、PROTOCOL_DIFF_REPORT、协议变更、数据库变更。
+  不用于：非 GalaxyServer 项目、从零开发新系统（请用 $gcode-new-feature）、通用代码审查、通用重构建议（这些请用 $gcode 或对应语言 Skill）。
 ---
 
 # gcode — 修改功能规范
@@ -160,7 +164,8 @@ public void receiveMailAllItem(long mailId, int index) {
 - [ ] 每做一个小改动，运行一次测试（`mvn test -pl GameServer -Dtest=YourModuleTest`）
 - [ ] 修改完成后，新增测试覆盖本次引入的新行为
 
-> **具体怎么写好测试，参考 `$test-driven-development`**。
+> 通用 TDD 节奏（RED → GREEN → REFACTOR）见 `$gcode` 的「TDD 基础节奏」。
+> 具体怎么写好单个测试（命名、断言、避免 mock 陷阱）见 `$test-driven-development`。
 
 **❌ 错误做法**
 ```java
@@ -289,6 +294,8 @@ private MyDataObject mapRow(ResultSet rs) throws SQLException {
 ---
 
 ### 跨服 / 内部协议修改规范
+
+> 通用跨服架构约束（`ServerRouteProto` 信封、玩家路由、失败补偿）先读 `$gcode` 的「GalaxyServer 架构约束」。本节只讲**修改**这些约定时的额外注意点。
 
 #### 修改前：影响面分析
 

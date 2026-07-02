@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "69da6025-04d2-47e8-bc72-74d50ec6aa22",
+  "path": "luban",
+  "path_key": "luban",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "git",
+    "ref": "https://github.com/LearnPrompt/luban-skill",
+    "subpath": "skills/luban",
+    "branch": null
+  }
+}

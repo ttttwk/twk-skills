@@ -1,6 +1,10 @@
 ---
 name: gcode-new-feature
-description: Use when implementing a brand-new server-side feature from scratch in a GalaxyServer-based Java game project. Triggered by mentions of "新增功能", "new feature workflow", "从零开发", or adding a complete system/module requiring new Proto, CmdType, PlayerModule, Manager, DB tables, and Assembler.
+description: |
+  基于 GalaxyServer 框架的 Java 游戏服务端：从零开发一个新系统/功能的完整工作流。
+  用于：新建 Proto、CmdType、Cmd、PlayerModule、Manager、DB、Repository、Assembler、SQL 迁移及注册映射的全链路开发。
+  触发词：新增功能、new feature workflow、从零开发、新建系统、新建模块。
+  不用于：非 GalaxyServer 项目、不生成新文件/新表的小改动、纯代码重构、修改现有协议/数据库（这些请用 $gcode 或 $gcode-modify）。
 ---
 
 # gcode — 新增功能开发 Workflow
@@ -293,11 +297,14 @@ mvn test
 - 确认 `save()` 方法会在玩家下线/定时存档时被框架调用。
 
 #### 10.7 跨进程/跨服检查
+
+> 通用跨服架构约束先读 `$gcode` 的「GalaxyServer 架构约束」。本节是新增功能集成验证时的核对清单。
+
 - 是否涉及操作其他玩家？如有，确认使用了 `PlayerManager.sendToPlayer` 或 `ServerCommunicator.callManager` 转发，而非直接操作本地对象。
 - 是否涉及区服全局数据？如有，确认读写都经过 RegionServer，而非业务 Server 本地假设。
 - 跨进程消息是否使用了 `ServerRouteProto` 信封？
 - 接收端 `@RemoteMapping` 参数是否为 `ServerRouteProto`？
 - 失败补偿是否用独立 `RemoteMethod` 实现？
-- **任何一项不确定时，回退到「不确定时如何处理」章节，询问用户确认。**
+- **任何一项不确定时，回退到 `$gcode` 的「不确定时如何处理」章节，询问用户确认。**
 
 ---

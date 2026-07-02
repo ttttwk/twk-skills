@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "7714e3da-1eab-4365-9450-4baa212481fe",
+  "path": "make-interfaces-feel-better",
+  "path_key": "make-interfaces-feel-better",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "skillssh",
+    "ref": "jakubkrehel/make-interfaces-feel-better/make-interfaces-feel-better",
+    "subpath": "skills/make-interfaces-feel-better",
+    "branch": null
+  }
+}
